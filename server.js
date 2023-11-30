@@ -8,7 +8,7 @@ var authCheck = require('./lib_login/authCheck.js');
 var template = require('./lib_login/template.js');
 
 const app = express()
-const port = process.env.PORT || 4000;
+const port = 3000;
 
 
 /*
