@@ -12,7 +12,7 @@ const port = process.env.PORT || 4000;
 
 
 // 연결 오류 재시작 부분
-const mysql = require('mysql2');
+const mysql = require('mysql');
 const connection = mysql.createConnection({
     host: '203.234.62.187',
     port: 7999,
@@ -20,7 +20,7 @@ const connection = mysql.createConnection({
     password: '1234',
     database: 'my_db',
     connectTimeout: 20000, // 연결 타임아웃을 20초로 설정 (원하는 시간으로 조정 가능)
-    acquireTimeoutMillis: 20000 // 획득 타임아웃을 20초로 설정
+    acquireTimeout: 20000, // 획득 타임아웃을 20초로 설정
 });
 
 function handleDisconnect() {
