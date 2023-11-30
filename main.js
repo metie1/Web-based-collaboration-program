@@ -1,7 +1,7 @@
-const express = require('express')
-const session = require('express-session')
+const express = require('express');
+const session = require('express-session');
 const bodyParser = require('body-parser');
-const FileStore = require('session-file-store')(session)
+const FileStore = require('session-file-store')(session);
 
 var authRouter = require('./lib_login/auth');
 var authCheck = require('./lib_login/authCheck.js');
