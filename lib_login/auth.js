@@ -68,7 +68,7 @@ router.get('/register', function(request, response) {
     `, '');
     response.send(html);
 });
- 
+
 // 회원가입 프로세스
 router.post('/register_process', function(request, response) {    
     var username = request.body.username;
