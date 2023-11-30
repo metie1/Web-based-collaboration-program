@@ -3,7 +3,7 @@ const session = require('express-session');
 const bodyParser = require('body-parser');
 const FileStore = require('session-file-store')(session);
 
-var authRouter = require('./lib_login/auth');
+var authRouter = require('./lib_login/auth.js');
 var authCheck = require('./lib_login/authCheck.js');
 var template = require('./lib_login/template.js');
 
