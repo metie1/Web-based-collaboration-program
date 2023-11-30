@@ -10,6 +10,38 @@ var template = require('./lib_login/template.js');
 const app = express()
 const port = process.env.PORT || 3000;
 
+
+
+const mysql = require('mysql2');
+const connection = mysql.createConnection({
+    host: '203.234.62.187',
+    port: 7999,
+    user: 'tester',
+    password: '1234',
+    database: 'my_db'
+});
+
+function handleDisconnect() {
+    connection.connect((err) => {
+        if (err) {
+        console.log('Error when connecting to MySQL:', err);
+        setTimeout(handleDisconnect, 2000); // 재시도 간격 (2초)
+        }
+    });
+
+    connection.on('error', (err) => {
+        console.log('MySQL error:', err);
+        if (err.code === 'PROTOCOL_CONNECTION_LOST' || err.code === 'ECONNRESET') {
+        handleDisconnect();
+        } else {
+        throw err;
+        }
+    });
+}
+handleDisconnect();
+
+
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(session({
     secret: '~~~',	// 원하는 문자 입력
