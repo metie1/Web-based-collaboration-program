@@ -11,14 +11,16 @@ const app = express()
 const port = process.env.PORT || 4000;
 
 
-
+// 연결 오류 재시작 부분
 const mysql = require('mysql2');
 const connection = mysql.createConnection({
     host: '203.234.62.187',
     port: 7999,
     user: 'tester',
     password: '1234',
-    database: 'my_db'
+    database: 'my_db',
+    connectTimeout: 20000, // 연결 타임아웃을 20초로 설정 (원하는 시간으로 조정 가능)
+    acquireTimeout: 20000, // 획득 타임아웃을 20초로 설정
 });
 
 function handleDisconnect() {
@@ -54,7 +56,7 @@ app.get('/', (req, res) => {
     if (!authCheck.isOwner(req, res)) {  // 로그인 안되어있으면 로그인 페이지로 이동시킴
         res.redirect('/auth/login');
         return false;
-    } else {                                      // 로그인 되어있으면 메인 페이지로 이동시킴
+    } else {                             // 로그인 되어있으면 메인 페이지로 이동시킴
         res.redirect('/main');
         return false;
     }
