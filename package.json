@@ -1,6 +1,8 @@
 {
   "dependencies": {
+    "cookie-parser": "^1.4.6",
     "express": "^4.18.2",
+    "express-session": "^1.17.3",
     "ws": "^8.14.2"
   },
   "scripts": {
@@ -9,7 +11,6 @@
   "name": "webrtc-video-call",
   "version": "1.0.0",
   "main": "app.js",
-  "devDependencies": {},
   "keywords": [],
   "author": "",
   "license": "ISC",
