@@ -20,7 +20,7 @@ const connection = mysql.createConnection({
     password: '1234',
     database: 'my_db',
     connectTimeout: 20000, // 연결 타임아웃을 20초로 설정 (원하는 시간으로 조정 가능)
-    acquireTimeoutMillis: 20000, // 획득 타임아웃을 20초로 설정
+    acquireTimeoutMillis: 20000 // 획득 타임아웃을 20초로 설정
 });
 
 function handleDisconnect() {
