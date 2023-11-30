@@ -8,9 +8,7 @@ var authCheck = require('./lib_login/authCheck.js');
 var template = require('./lib_login/template.js');
 
 const app = express()
-const externalPort = 7999;
-const internalPort = 413;
-const internalIPAddress = '192.168.0.92';
+const port = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(session({
@@ -48,6 +46,6 @@ app.get('/main', (req, res) => {
     res.send(html);
 })
 
-app.listen(internalPort, internalIPAddress, () => {
-    console.log(`Example app listening on ${internalIPAddress}:${internalPort}`);
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`)
 })
