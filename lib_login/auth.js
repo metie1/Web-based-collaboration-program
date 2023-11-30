@@ -108,8 +108,3 @@ router.post('/register_process', function(request, response) {
 });
 
 module.exports = router;
-
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).send('Something went wrong!');
-});
