@@ -11,6 +11,7 @@ const app = express()
 const port = process.env.PORT || 4000;
 
 
+/*
 // 연결 오류 재시작 부분
 const mysql = require('mysql2');
 const connection = mysql.createConnection({
@@ -39,7 +40,7 @@ function handleDisconnect() {
     });
 }
 handleDisconnect();
-
+*/
 
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -77,11 +78,6 @@ app.get('/main', (req, res) => {
     );
     res.send(html);
 })
-
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).send('Something went wrong!');
-});
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
