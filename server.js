@@ -32,6 +32,13 @@ wss.on('connection', ws => {
     });
 });
 
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => {
+    console.log(`서버가 ${PORT} 포트에서 실행 중입니다.`);
+});
+
+/*
 server.listen(3000, '0.0.0.0', () => {
     console.log('시그널링 서버 시작: http://localhost:3000');
 });
+*/
