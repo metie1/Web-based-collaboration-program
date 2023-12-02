@@ -3,71 +3,160 @@ module.exports = {
         return `
         <!doctype html>
         <html>
-        <head>    
-            <title>Login TEST - ${title}</title>
-            <meta charset="utf-8">
+
+        <head>
+            <meta charset="UTF-8">
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+            <title>로그인</title>
             <style>
-            @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
-    
-            body {
-                font-family: 'Noto Sans KR', sans-serif;
-                background-color: #AAA2C2;
-                margin: 50px;
-    
-            }
-    
-            .background {
-                background-color: white;
-                height: auto;
-                width: 90%;
-                max-width: 450px;
-                padding: 10px;
-                margin: 0 auto;
-                border-radius: 5px;
-                box-shadow: 0px 40px 30px -20px rgba(0, 0, 0, 0.3);
-                text-align: center;
-            }
-    
-            form {
-                display: flex;
-                padding: 30px;
-                flex-direction: column;
-            }
-    
-            .login {
-                border: none;
-                border-bottom: 2px solid #D1D1D4;
-                background: none;
-                padding: 10px;
-                font-weight: 700;
-                transition: .2s;
-                width: 75%;
-            }
-            .login:active,
-            .login:focus,
-            .login:hover {
-                outline: none;
-                border-bottom-color: #6A679E;
-            }
-    
-            .btn {            
-                border: none;
-                width: 75%;
-                background-color: #6A679E;
-                color: white;
-                padding: 15px 0;
-                font-weight: 600;
-                border-radius: 5px;
-                cursor: pointer;
-                transition: .2s;
-            }
-            .btn:hover {
-                background-color: #595787;
-            }
-        </style>
+                body {
+                    font-family: Arial, sans-serif;
+                    background-color: #f8f9fa;
+                    margin: 0;
+                }
+
+                header {
+                    text-align: center;
+                    padding: 20px;
+                    background-color: #ffffff;
+                    color: #333;
+                }
+
+                header h1 {
+                    font-size: 36px;
+                    margin: 0;
+                }
+
+                nav {
+                    padding: 10px 0;
+                    background-color: #f1f3f5;  
+                }
+
+                .nav-tabs .nav-link {
+                    color: #333;
+                    font-size: 18px;
+                }
+
+                .nav-tabs .nav-link.active {
+                    color: #007bff;
+                    font-weight: bold;
+                }
+
+                section {
+                    text-align: center;
+                    padding: 40px 0;
+                }
+
+                footer {
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                    background-color: #333;
+                    text-align: center;
+                    padding: 20px 0;
+                }
+
+                footer a {
+                    color: #fff;
+                    text-decoration: none;  
+                    margin: 0 10px;
+                }
+
+                #myprofileTopBox, #myprofileBodyBox, #myprofileVerifyBox {
+                    border: 1px solid #ccc;
+                    background-color: #fff;
+                    padding: 20px;
+                    border-radius: 5px;
+                    margin-bottom: 20px;
+                }
+
+                #myprofileTopBox p {
+                    margin: 0;
+                    font-size: 24px;
+                    color: #333;
+                }
+
+                #myprofileBodyBox p {
+                    margin: 0;
+                    font-size: 20px;
+                    color: #333;
+                }
+
+                #myprofileVerifyBox p {
+                    margin: 0;
+                    font-size: 18px;
+                    color: #333;
+                }
+
+                #myprofileVerifyBox a {
+                    display: block;
+                    margin-top: 10px;
+                    font-size: 16px;
+                    color: #007bff;
+                    text-decoration: none;
+                }
+
+
+                #loginContainer {
+                    max-width: 500px;
+                    margin: 0 auto;
+                    padding: 30px;
+                    background-color: #fff;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    text-align: center;
+                }
+
+                #loginContainer p {
+                    margin: 0;
+                    font-size: 24px;
+                    color: #333;
+                }
+
+                #loginContainer img {
+                    max-width: 50px;
+                    vertical-align: middle;
+                }
+
+                #loginContainer form {
+                    margin-top: 20px;
+                }
+
+                #loginContainer input {
+                    width: 100%;
+                    padding: 10px;
+                    margin-bottom: 15px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                    font-size: 16px;
+                }
+
+                #loginContainer input[type="submit"] {
+                    background-color: #505050;
+                    color: #fff;
+                    cursor: pointer;
+                    transition: background-color 0.3s ease;
+                }
+
+                #loginContainer input[type="submit"]:hover {
+                    background-color: #b3b3b3;
+                }
+
+                #signupButton {
+                    margin-top: 10px;
+                }
+
+                #signupButton a {
+                    font-size: 16px;
+                    color: #007bff;
+                    text-decoration: none;
+                }
+            </style>
         </head>
+
+
         <body>
-            <div class="background">
+            <div class="loginContainer">
             ${authStatusUI}
             ${body}
             </div>

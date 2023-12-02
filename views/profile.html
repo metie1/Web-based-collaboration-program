@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="http://www.yoursite.com/favicon.ico?v=2" type="image/x-icon">
+    <link rel="stylesheet" href="/css/profile.css" />
+    <title>프로필</title>
+
+    <script type="text/javascript" id = "Clock">
+        function showClock(){
+            var currentDate = new Date();
+            var divClock = document.getElementById('divClock');
+            var msg = "";
+
+            if(currentDate.getHours() > 12){  //시간이 12보다 크다면 오후 아니면 오전
+                msg += "P.M ";
+                msg += currentDate.getHours()-12+" : ";
+            }
+            else {
+                msg += "A.M ";
+                msg += currentDate.getHours()+" : ";
+            }
+
+            if(currentDate.getMinutes() < 10){
+                msg += "0" + currentDate.getMinutes() + " ";
+            }
+            else {
+                msg += currentDate.getMinutes() + " ";
+            }
+            
+            week = currentDate.getDay()
+            if(week == 0) msg += "(일)";
+            else if(week == 1) msg += "(월)";
+            else if(week == 2) msg += "(화)";
+            else if(week == 3) msg += "(수)";
+            else if(week == 4) msg += "(목)";
+            else if(week == 5) msg += "(금)";
+            else if(week == 6) msg += "(토)";
+            
+            divClock.innerText = msg;
+
+            setTimeout(showClock,1000);  //1초마다 갱신
+        }
+
+        // 서브 창 표시 여부를 토글하는 함수
+        function toggleSubWindow() {
+            var subWindow = document.querySelector('.sub-window');
+            subWindow.style.display = subWindow.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</head>
+
+<body onload="showClock()">
+    <div style="display: flex; width: 100%;">
+        <div class="nav_wrap" style="width: 240px;">
+
+            <div class = "id" style="width: 208px;"></div>
+
+            <div class = "FREE_TRIAL nav_table">
+                <a href="home.html">
+                    <div class = "menu_home" style="display: flex; flex-direction: column; border-radius: 15px;">
+                        
+                        <!-- 홈 -->
+                        <div style="display: flex; -webkit-box-align: center; align-items: center; gap: 6px;">
+                            <div><img src="src/home_img.png" alt="홈 이미지"></div>
+                            <div class="home_font">
+                                <span>홈</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+
+                <!-- 구분선 -->
+                <div style="height: 1px; border-top: 1px solid rgb(0, 0, 0); width: 100%; margin-block: 12px;"></div>
+
+
+                <div style="padding: 0rem; height: auto; background-color: rgb(255, 255, 255);">
+                    <!-- 출퇴근 및 방문 메뉴 부분-->
+                    <div style="margin-bottom: 12px;">
+                        <div class="index">
+                            <span>출퇴근 및 방문</span>
+                            <div><img src="src/menu_down.png" alt="메뉴 자세히 보기"></div>
+                        </div>
+
+                        <div>
+                            <!--
+                            # 출퇴근
+                            <div style="display: flex; flex-direction: column; border-radius: 6px;">
+                                <div class="nav-menu-item" style="padding-block: 6px; border-radius: 6px;">
+                                    <div>
+                                        <div><img src="src/work_time.png" alt="출퇴근 이미지"></div>
+                                        <div><span>출퇴근</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            -->
+
+                            <!-- 스케쥴 -->
+                            <div style="display: flex; flex-direction: column; border-radius: 6px;">
+                                <div class="nav-menu-item" style="padding-block: 6px; border-radius: 6px;">
+                                    <a href="schedule.html" style="text-decoration: none; color:rgb(51, 51, 51);"><div>
+                                        <div><img src="src/schedule.png" alt="스케쥴 이미지"></div>
+                                            <div><span>스케줄</span></div>
+                                        </div>
+                                    </a>
+                                    <div>
+                                        <div><img src="src/detail_down.png" alt="스케쥴 메뉴 열기"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 휴가 
+                            <div style="display: flex; flex-direction: column; border-radius: 6px;">
+                                <div class="nav-menu-item css-1k1e2ra e1lefcsv8" style="padding-block: 6px; border-radius: 6px;">
+                                    <div>
+                                        <div><img src="src/vacation.png" alt="휴가 이미지"></div>
+                                        <div><span>휴가</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            -->
+
+                        </div>
+                    </div>
+
+                    <!-- 커뮤니케이션 메뉴 부분 -->
+                    <div style="margin-bottom: 12px;">
+                        <div class="index">
+                            <span>커뮤니케이션</span>
+                            <div><img src="src/menu_down.png" alt="메뉴 자세히 보기"></div>
+                        </div>
+
+                        
+                        <div>
+                            <!-- 할 일 -->
+                            <div style="display: flex; flex-direction: column; border-radius: 6px;">
+                                <div class="nav-menu-item" style="padding-block: 6px; border-radius: 6px;">
+                                    <div>
+                                        <div><img src="src/to_do.png" alt="할 일 이미지"></div>
+                                        <div><span>할 일</span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 공지 및 설문 -->
+                            <div style="display: flex; flex-direction: column; border-radius: 6px;">
+                                <div class="nav-menu-item" style="padding-block: 6px; border-radius: 6px;">
+                                    <div>
+                                        <div><img src="src/notification.png" alt="공지 및 설문 이미지"></div>
+                                        <div><span>공지 및 설문</span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 보고서 
+                            <div style="display: flex; flex-direction: column; border-radius: 6px;">
+                                <div class="nav-menu-item" style="padding-block: 6px; border-radius: 6px;">
+                                    <div>
+                                        <div><img src="src/report.png" alt="보고서 이미지"></div>
+                                        <div><span>보고서</span></div>
+                                    </div>
+                                    <div>
+                                        <div><img src="src/detail_down.png" alt="보고서 메뉴 열기"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            -->
+
+                            <!-- 게시판 -->
+                            <div style="display: flex; flex-direction: column; border-radius: 6px;">
+                                <div class="nav-menu-item" style="padding-block: 6px; border-radius: 6px;">
+                                    <div>
+                                        <div><img src="src/notice board.png" alt="게시판 이미지">
+                                        </div>
+                                        <div><span>게시판</span></div>
+                                    </div>
+                                    <div>
+                                        <div><img src="src/detail_down.png" alt="게시판 메뉴 열기"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 채팅 -->
+                            <div style="display: flex; flex-direction: column; border-radius: 6px;">
+                                <div class="nav-menu-item" style="padding-block: 6px; border-radius: 6px;">
+                                    <div>
+                                        <div><img src="src/chat.png" alt="채팅 이미지"></div>
+                                        <div><span>채팅</span></div>
+                                    </div>
+                                    <div><img src="src/entering.png" alt="채팅 진입"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- 승인 메뉴 부분 
+                    <div style="margin-bottom: 12px;">
+                        <div class="index">
+                            <span>승인</span>
+                            <div><img src="src/menu_down.png" alt="메뉴 자세히 보기"></div>
+                        </div>
+
+                        <div>
+                            // 승인 
+                            <div style="display: flex; flex-direction: column; border-radius: 6px;">
+                                <div class="nav-menu-item" style="padding-block: 6px; border-radius: 6px;">
+                                    <div>
+                                        <div><img src="src/accept.png" alt="승인 이미지"></div>
+                                        <div><span>승인</span></div>
+                                    </div>
+                                    <div>
+                                        <div><img src="src/detail_down.png" alt="승인 메뉴 열기"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    -->
+
+                    <!-- 관리 메뉴 부분 
+                    <div style="margin-bottom: 12px;">
+                        <div class="index">
+                            <span>관리</span>
+                            <div><img src="src/menu_down.png" alt="메뉴 자세히 보기"></div>
+                        </div>
+
+                        <div>
+                            // 사용가능
+                            <div style="display: flex; flex-direction: column; border-radius: 6px;">
+                                <div class="nav-menu-item" style="padding-block: 6px; border-radius: 6px;">
+                                    <div>
+                                        <div>
+                                            <div class="Ping-module_container__65lKE" style="--uib-size: 24px; --uib-color: #6979f8; --uib-speed: 2s;">
+                                            </div>
+                                        </div>
+                                        <div><span>사용 기능</span></div>
+                                    </div>
+                                    <div><img src="src/detail_down.png" alt="사용 기능 메뉴 열기"></div>
+                                </div>
+                            </div>
+
+                            // 그룹
+                            <div style="display: flex; flex-direction: column; border-radius: 6px;">
+                                <div class="nav-menu-item" style="padding-block: 6px; border-radius: 6px;">
+                                    <div>
+                                        <div>
+                                            <div class="Ping-module_container__65lKE" style="--uib-size: 24px; --uib-color: #6979f8; --uib-speed: 2s;">
+                                            </div>
+                                        </div>
+                                        <div><span>그룹</span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            // 근무지
+                            <div style="display: flex; flex-direction: column; border-radius: 6px;">
+                                <div class="nav-menu-item" style="padding-block: 6px; border-radius: 6px;">
+                                    <div>
+                                        <div>
+                                            <div class="Ping-module_container__65lKE" style="--uib-size: 24px; --uib-color: #6979f8; --uib-speed: 2s;">
+                                            </div>
+                                        </div>
+                                        <div><span>근무지</span></div>
+                                    </div>
+                                    <div>
+                                        <div><img src="src/detail_down.png" alt="근무지 메뉴 열기"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            // 구성원 
+                            <div style="display: flex; flex-direction: column; border-radius: 6px;">
+                                <div class="nav-menu-item" style="padding-block: 6px; border-radius: 6px;">
+                                    <div>
+                                        <div>
+                                            <div class="Ping-module_container__65lKE" style="--uib-size: 24px; --uib-color: #6979f8; --uib-speed: 2s;">
+                                            </div>
+                                        </div>
+                                        <div><span>구성원</span></div>
+                                    </div>
+                                    <div>
+                                        <div><img src="src/detail_down.png" alt="구성원 메뉴 열기"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    -->
+
+                    
+                    <!-- 구분선 -->
+                    <div style="height: 1px; border-top: 1px solid rgb(0, 0, 0); width: 100%; margin-block: 12px;"></div>
+
+                    <!-- 기타 메뉴 부분 -->
+                    <div>
+                        <!-- 설정 -->
+                        <div style="display: flex; flex-direction: column; border-radius: 6px;">
+                            <div class="nav-menu-item" style="padding-block: 6px; border-radius: 6px;">
+                                <div>
+                                    <div><img src="src/setting.png" alt="설정 이미지">
+                                    </div>
+                                    <div><span>설정</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 결제 -->
+                        <div style="display: flex; flex-direction: column; border-radius: 6px;">
+                            <div class="nav-menu-item" style="padding-block: 6px; border-radius: 6px;">
+                                <div>
+                                    <div><img src="src/pay.png" alt="결제 이미지"></div>
+                                    <div><span>결제</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!--
+                <div id="select">
+                    <div><a href="plan.html" class="sel1">일정관리</a><br></div>
+                    <div><a href="office.html" class="sel1">오피스</a><br></div>
+                    <div><a href="setting.html" class="sel1">설정</a><br></div>
+
+                </div>
+                -->
+            </div>
+        </div>
+
+        <div style="min-width: 240px;"></div>
+
+        <div class="header">
+            <div class = "selected_menu">Profile</div>
+            <div style="margin-left: 12px;">
+                <button class = "setting"  onclick="toggleSubWindow()">
+                    <div>
+                        <img class="user_avatar" src="src/user.png" alt="avatar image">
+                    </div>
+                </button>
+
+                <!-- 서브 창 -->
+                <div class="sub-window">
+                    <ul>
+                        <a href="profile.html" style="text-decoration: none; color:black">
+                            <li><span>프로필</span></li>
+                        </a>
+                        <a href="/auth/logout" style="text-decoration: none; color:black">
+                            <li><span>로그아웃</span></li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class = "main">
+            <section class="profile_wrap">
+                <div class="profile_box">
+                    <div class="profile_name_img">
+                        <div class="profile_name_img_wrap">
+                            <div class="profile_avatar">
+                                <img src="src/user.png" alt="프로필 이미지">
+                                <!-- <img src="src/crown.png" alt="왕관 이미지"> -->
+                            </div>
+                        </div>
+                        <div style="display: flex; width: 526px; flex-direction: column; gap: 13.5px;">
+                            <label for="inlineEditInput" style="color: rgb(153, 153, 153);
+                            font-size: 16px; line-height: 20px; font-weight: 700;">
+                                이름
+                            </label>
+                            <div style="display: flex; align-items: flex-start; position: relative; gap: 16px;">
+                                <div id="inlineEditInput" contenteditable="true" class="inlineEditInput">
+                                    이성원
+                                </div>
+                                <label for="inlineEditInput" class="inlineEditInput_img">
+                                    <img src="src/Edit.png" alt="수정 이미지">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile_Edit_wrap">
+                        <!--
+                        <div class="css-1yg6v08 e9sf1r94">
+                            <p class="css-1fwdldv e9sf1r91">
+                                휴대폰 번호
+                            </p>
+                            <div class="css-wwritd e1sbgmz23">
+                                <input type="text" width="309px" maxlength="20" 
+                                class="css-1lpf5dh e1sbgmz22" value="01083010684">
+                                <button type="button" class="css-d8bak1 e1sbgmz21">
+                                    <img src="src/clear_edits.png" alt="초기화 이미지">
+                                </button>
+                                <button type="button" disabled="" class="css-1sh432y e1sbgmz20">
+                                    <img src="src/apply.png" alt="적용 이미지">
+                                </button>
+                            </div>
+                        </div>
+                    -->
+
+                        <div class="profile_Edit">
+                            <p>아이디</p>
+                            <div style="position: relative;">
+                                <input type="text" width="309px" class="id_Edit" 
+                                value="lesw1012@gmail.com">
+                                <button type="button" class="clear_btn">
+                                    <img src="src/clear_edits.png" alt="초기화 이미지">
+                                </button>
+                            </div>
+                        </div>
+
+                        <!--
+                        <div class="css-15e1occ eeh3pov2">
+                            <div class="css-f8eyll eeh3pov1">
+                                <div class="css-vvbq3s eeh3pov0">
+
+                                </div>
+                                <div class="css-ig8uxv eeh3pov0">
+
+                                </div>
+                                <div class="css-4za9cw eeh3pov0">
+
+                                </div>
+                                <div class="css-12yhbx0 eeh3pov0">
+
+                                </div>
+                            </div>
+                        </div>
+                        -->
+                    </div>
+
+                    <div class="profile_Edit_wrap">
+                        <div class="profile_Edit">
+                            <p>현재 비밀번호</p>
+                            <div style="width: 100%;">
+                                <div class="profile_Edit_box">
+                                    <input placeholder="현재 비밀번호 입력" 
+                                    type="password" font-size="14px" name="old" 
+                                    id="old" data-testid="old" 
+                                    class="profile_Edit_box_input" value="">
+
+                                    <div style="position: absolute; top: 50%;left: 1rem;
+                                    transform: translateY(-50%); height: 20px;">
+                                    </div>
+
+                                    <button type="button" class="hidden_view">
+                                        <img src="src/hidden_view.png" alt="숨김 보기 이미지">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile_Edit" style="margin-top: 24px;">
+                            <p>새 비밀번호</p>
+                            <div style="width: 100%;">
+                                <div class="profile_Edit_box">
+                                    <input placeholder="비밀번호 (8~20자)" type="password" 
+                                    font-size="14px" name="new" id="new" data-testid="new" 
+                                    class="profile_Edit_box_input" value="">
+                                    <!--<div class="css-13w642m erkdl962"></div>-->
+                                    <button type="button" class="hidden_view">
+                                        <img src="src/hidden_view.png" alt="숨김 보기 이미지">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile_Edit" style="margin-top: 24px;">
+                            <p>비밀번호 확인</p>
+                            <div style="width: 100%;">
+                                <div class="profile_Edit_box">
+                                    <input placeholder="비밀번호 재입력" type="password" 
+                                    font-size="14px" name="newConfirm" id="newConfirm" 
+                                    data-testid="newConfirm" class="profile_Edit_box_input" value="">
+                                    <!--<div class="css-13w642m erkdl962"></div>-->
+                                    <button type="button" class="hidden_view">
+                                        <img src="src/hidden_view.png" alt="숨김 보기 이미지">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="profile_Edit_confirm">
+                            <button class="Edit_confirm_btn" disabled="" type="button">
+                                비밀번호 변경
+                            </button>
+                        </div>
+                        <!--
+                        <div class="css-15e1occ eeh3pov2">
+                            <div class="css-f8eyll eeh3pov1">
+                                <div class="css-vvbq3s eeh3pov0"></div>
+                                <div class="css-ig8uxv eeh3pov0"></div>
+                                <div class="css-4za9cw eeh3pov0"></div>
+                                <div class="css-12yhbx0 eeh3pov0"></div>
+                            </div>
+                        </div>
+                        -->
+                    </div>
+                    <div style="margin: 0px 242px 24px 108px;padding-top: 24px;
+                    border-top: 1px solid rgb(221, 221, 221);">
+                        <div style="color: rgb(153, 153, 153); font-size: 14px;
+                        font-weight: 500; line-height: 18px;">
+                            더 이상 서비스 사용을 원치 않으시다면 
+                            <span class="cur-pointer" onclick="goToDeleteAccount(this);">
+                                탈퇴
+                            </span>하실 수 있습니다.
+                        </div>
+                    </div>
+                </div>
+                <div class="css-15e1occ eeh3pov2">
+                    <div class="css-f8eyll eeh3pov1">
+                        <div class="css-vvbq3s eeh3pov0"></div>
+                        <div class="css-ig8uxv eeh3pov0"></div>
+                        <div class="css-4za9cw eeh3pov0"></div>
+                        <div class="css-12yhbx0 eeh3pov0"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!--
+            <div>
+                <section>
+                    <div>
+                        <div>
+                            <div><img src="src/schedule_color.png" alt="스케쥴 컬러 이미지"></div>
+                            <h6>오늘 스케줄</h6>
+                        </div>
+                        <div>
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" class="css-125q558">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.27036 15.7326C4.94265 15.4084 4.91286 14.9012 5.18099 14.5437L5.27036 14.4413L10.7711 9L5.27036 3.55866C4.94265 3.23451 4.91286 2.72727 5.18099 2.36983L5.27036 2.26743C5.59808 1.94327 6.11089 1.91381 6.47226 2.17902L6.57579 2.26743L12.7296 8.35438C13.0574 8.67853 13.0871 9.18577 12.819 9.54321L12.7296 9.64562L6.57579 15.7326C6.21531 16.0891 5.63085 16.0891 5.27036 15.7326Z" fill="#333333">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                </section>
+            </div>
+            -->
+        </div>
+    </div>
+        
+        
+        <!--
+        <div class="plan">
+            <table>
+                <tr><th class="title">오늘의 일정</th></tr>
+                <tr><td class="odd"></td></tr>
+                <tr><td class="even"></td></tr>
+                <tr><td class="odd"></td></tr>
+                <tr><td class="even"></td></tr>
+            </table>
+        </div>
+    -->
+    
+    <!--
+        <div class="wrapper">
+            <header>
+                <div class="nav">
+                    <button class="material-icons"></button>
+                    <p class="current-date"> November 2023</p>
+                    <button class="material-icons"></button>
+                </div>
+            </header>   
+            <div class="calendar">
+                <ul class="weeks">
+                    <li>Sun</li>
+                    <li>Mon</li>
+                    <li>Tue</li>
+                    <li>Wed</li>
+                    <li>Thu</li>
+                    <li>Fri</li>
+                    <li>Sat</li>
+                </ul>
+                <ul class="days">
+                    <li class="inactive">29</li>
+                    <li class="inactive">30</li>
+                    <li class="inactive">31</li>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li>7</li>
+                    <li>8</li>
+                    <li>9</li>
+                    <li>10</li>
+                    <li>11</li>
+                    <li>12</li>
+                    <li>13</li>
+                    <li>14</li>
+                    <li>15</li>
+                    <li>16</li>
+                    <li>17</li>
+                    <li>18</li>
+                    <li>19</li>
+                    <li>20</li>
+                    <li>21</li>
+                    <li>22</li>
+                    <li>23</li>
+                    <li>24</li>
+                    <li>25</li>
+                    <li>26</li>
+                    <li>27</li>
+                    <li>28</li>
+                    <li>29</li>
+                    <li>30</li>
+                </ul>
+            </div>
+        </div>
+    -->
+</body>
+</html>
