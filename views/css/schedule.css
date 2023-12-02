@@ -1,111 +1,12 @@
-/*
-        .plan{
-            float: left;
-            width: 300px;
-            height: 220px;
-            background-color:#a1a1a1;
-            margin-left: 60px;
-            margin-top: 60px;
-        }
-        .plan .title{
-            font-size: 30px;
-            color: white;
-            width: 300px;
-            background-color:#494949;
-            text-align: center;
-        }
-        .plan tr td{ width: 300px; height: 42px;}
-        .plan .odd{ background-color: rgb(198, 198, 245); }
-        .plan .even{ background-color: rgb(245, 245, 245); }
-        */
 
-        /* 
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-        button {
-            // button 요소에 기본적으로 설정되는 스타일 속성 초기화
-            border: none;
-            outline: none;
-            background-color: transparent;
-            padding: 0;
-            cursor: pointer;
-        }
-        .wrapper {
-            width: 950px;
-            height: 550px;
-            background: #a1a1a1;
-            border-radius: 15px;
-            padding: 50px;
-            margin-top: 50px;
-            position: relative;
-            float: right;
-            float: top;
-        }
-        .wrapper .nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 30px;
-        }
-        .wrapper .nav .current-date {
-            font-size: 25px;
-            font-weight: bold;
-        }
-        .wrapper .nav button {
-            width: 38px;
-            height: 38px;
-            font-size: 30px;
-            color: #878787;
-        }
-        .calendar ul {
-            display: flex;
-            list-style: none;
-            flex-wrap: wrap;
-            text-align: center;
-        }
-        .calendar .weeks li {
-            font-weight: 500;
-        }
-        .calendar .days {
-            margin-bottom: 20px;
-        }
-        .calendar ul li {
-            width: calc(100% / 7);
-            position: relative;
-        }
-        .calendar .days li {
-            z-index: 1;
-            margin-top: 45px;
-            cursor: pointer;
-        }
-        .days li.inactive { color: #777777; }
-        .days li.active { color: #fff; }
-        .calendar .days li::before {
-            position: absolute;
-            content: '';
-            height: 40px;
-            width: 40px;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
-            z-index: -1;
-        }
-        .days li:hover::before { background: #f2f2f2; }
-        .days li.active::before { background: #008aff; }
-        */
 
         body {
             font-family: Pretendard, "Pretendard JP", sans-serif;
             line-height: 1;
             font-feature-settings: "ss05";
             color: rgb(51, 51, 51);
-            background-color: rgb(244, 244, 244);
+            display: block;
+            margin: 8px;
         }
 
         .header { 
@@ -198,11 +99,10 @@
         /* 추가된 부분: 스크롤바 없애기 */
         .nav_table::-webkit-scrollbar {
             display: none; /* Chrome, Safari, Edge */
+            scrollbar-width: none;
         }
 
-        .nav_table {
-            scrollbar-width: none; /* Firefox */
-        }
+
 
         .index{
             display: flex;
@@ -215,7 +115,6 @@
         }
 
         .home_font{
-            display: block;
             max-width: 164px;
             max-height: 32px;
             color: rgb(51, 51, 51);
@@ -386,12 +285,15 @@
         }
 
         /* 모달 창 스타일 수정 */
-        .fade {
-            :not(.show) {
-                opacity: 0;
-            }
+
+        .fade:not(.show) {
+            opacity: 0;
         }
         
+        .fade {
+            transition: opacity .15s linear;
+        }
+
         .modal{
             position: fixed;
             top: 0;
@@ -405,16 +307,17 @@
             outline: 0;
         }
 
-        .modal.fade .modal-dialog {
+        .modal.show .modal-dialog {
+            transform: none;
             transition: transform .3s ease-out;
             transform: translate(0,-50px);
         }
 
         .modal-dialog {
-            position: relative;
-            width: auto;
-            margin: 0.5rem;
-            pointer-events: none;
+            width: 400px;
+            position: absolute;
+            top: 40%;
+            left: 40%;  
         }
 
         .modal-content {
@@ -458,4 +361,23 @@
             border-bottom-right-radius: calc(0.3rem - 1px);
             border-bottom-left-radius: calc(0.3rem - 1px);
         }
-                
+
+        .btn-secondary {
+            color: #fff;
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }   
+        
+        /*
+        @media (min-width: 576px) {
+            .modal-dialog {
+                max-width: 500px;
+                margin: 1.75rem auto;
+            }
+        }
+        */
+        
+
+
+
+        
